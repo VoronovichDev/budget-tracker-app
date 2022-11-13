@@ -80,7 +80,6 @@ code {
       display: flex;
       justify-content: space-evenly;
       text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-      text-align: right;
       gap: 4rem;
       text-align: center;
       padding: 0 1rem;
@@ -226,12 +225,18 @@ input[type='number']::-webkit-inner-spin-button {
          padding: 7px 4px;
          border-radius: 5px;
          display: flex;
+         gap: 5px;
          justify-content: space-between;
-         background-color: #03c625;
+         align-items: center;
+         background: rgba(37, 232, 0, 0.59);
+         border-radius: 16px;
+         backdrop-filter: blur(5px);
+         -webkit-backdrop-filter: blur(5px);
+         border: 1px solid rgba(37, 232, 0, 0.3);
          width: 100%;
       }
       span {
-         color: rgb(44, 42, 42);
+         color: #444141;
       }
    }
 }
@@ -247,11 +252,17 @@ input[type='number']::-webkit-inner-spin-button {
          border-radius: 5px;
          display: flex;
          justify-content: space-between;
-         background-color: #c60303;
+         align-items: center;
+         gap: 5px;
+         background: rgba(232, 0, 0, 0.59);
+         border-radius: 16px;
+         backdrop-filter: blur(5px);
+         -webkit-backdrop-filter: blur(5px);
+         border: 1px solid rgba(232, 0, 0, 0.3);
          width: 100%;
       }
       span {
-         color: rgb(44, 42, 42);
+         color: #c1c1c5;
       }
    }
 }
@@ -269,7 +280,7 @@ input[type='number']::-webkit-inner-spin-button {
    padding: 0;
    list-style: none;
    width: 90%;
-   max-height: 20vh;
+   max-height: 25vh;
    overflow: hidden;
    overflow-y: auto;
    button {
@@ -299,4 +310,125 @@ input[type='number']::-webkit-inner-spin-button {
 ::-webkit-scrollbar-thumb {
    background: #242a4c;
    border-radius: 10px;
+}
+
+/*media queries*/
+
+@media (max-width: 1500px) {
+   html {
+      font-size: 58%;
+   }
+
+   .wrapper {
+      max-width: 140rem;
+      height: 85vh;
+   }
+
+   .transaction-list {
+      max-height: 20vh;
+   }
+}
+
+@media (max-width: 1200px) {
+   html {
+      font-size: 50%;
+   }
+}
+
+@media (max-width: 800px) {
+   .transactions-income {
+      grid-column: 2 / -1;
+      grid-row: 4 / 6;
+      h2 {
+         display: none;
+      }
+   }
+   .transactions-expense {
+      grid-column: 2 / -1;
+      grid-row: 7 / -1;
+      h2 {
+         display: none;
+      }
+   }
+   .header {
+      h1 {
+         font-size: 2rem;
+         font-weight: 600;
+      }
+   }
+   .transaction-form input:not([type='submit']) {
+      margin-bottom: 0.5rem;
+   }
+}
+@media (max-width: 600px) {
+   .header {
+      grid-column: 1/-1;
+      grid-row: 1/2;
+   }
+
+   .new-transaction {
+      grid-column: 1/-1;
+      grid-row: 2/4;
+      justify-items: center;
+      column-gap: 10px;
+   }
+   .transaction-form input:not([type='submit']) {
+      width: 90%;
+      margin-bottom: 0.5rem;
+      &::placeholder {
+         color: rgba(195, 195, 195, 0.752);
+         font-size: 1rem;
+      }
+   }
+   .transaction-form {
+      align-items: center;
+   }
+   .balance {
+      h2 {
+         font-size: 1.6rem;
+      }
+      h3 {
+         font-size: 1.4rem;
+      }
+      grid-row: 4/-1;
+      .plus-minus {
+         flex-direction: column;
+         gap: 10px;
+         padding: 10px;
+         .plus,
+         .minus {
+            h3,
+            p {
+               font-size: 1.2rem;
+               padding: 0;
+               margin: 0;
+            }
+         }
+      }
+   }
+   .transactions {
+      margin-top: 1rem;
+   }
+
+   .wrapper {
+      height: 90vh;
+      background: rgb(255 255 255 / 12%);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgb(214, 214, 214);
+      border-radius: 0.5rem;
+      display: grid;
+      grid-template-columns: minmax(35%, 40rem) repeat(2, minmax(30%, 25rem));
+      grid-template-rows: repeat(10, 1fr);
+      grid-gap: 0.5rem;
+   }
+   .transactions-income .transaction {
+      gap: 5px;
+   }
+   .transactions-expense .transaction {
+      gap: 5px;
+   }
 }
