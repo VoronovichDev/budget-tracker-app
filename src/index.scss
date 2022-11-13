@@ -182,7 +182,7 @@ code {
 
 .income input[type='submit'] {
    background: #02a31d;
-   border-radius: 16px;
+   border-radius: 6px;
    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
    backdrop-filter: blur(5px);
    -webkit-backdrop-filter: blur(5px);
@@ -194,7 +194,7 @@ code {
 
 .expense input[type='submit'] {
    background: #c60303;
-   border-radius: 16px;
+   border-radius: 6px;
    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
    backdrop-filter: blur(5px);
    -webkit-backdrop-filter: blur(5px);
@@ -229,7 +229,6 @@ input[type='number']::-webkit-inner-spin-button {
          justify-content: space-between;
          align-items: center;
          background: rgba(37, 232, 0, 0.59);
-         border-radius: 16px;
          backdrop-filter: blur(5px);
          -webkit-backdrop-filter: blur(5px);
          border: 1px solid rgba(37, 232, 0, 0.3);
@@ -255,7 +254,6 @@ input[type='number']::-webkit-inner-spin-button {
          align-items: center;
          gap: 5px;
          background: rgba(232, 0, 0, 0.59);
-         border-radius: 16px;
          backdrop-filter: blur(5px);
          -webkit-backdrop-filter: blur(5px);
          border: 1px solid rgba(232, 0, 0, 0.3);
