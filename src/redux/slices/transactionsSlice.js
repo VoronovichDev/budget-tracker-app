@@ -22,9 +22,17 @@ const transactionsSlice = createSlice({
     addExpense(state, action) {
       state.expenseTransactions = [action.payload, ...state.expenseTransactions];
     },
+    deleteTransaction(state, action) {
+      state.incomeTransactions = state.incomeTransactions.filter(
+        (incomeTransaction) => incomeTransaction.id !== action.payload.id,
+      );
+      state.expenseTransactions = state.expenseTransactions.filter(
+        (expenseTransaction) => expenseTransaction.id !== action.payload.id,
+      );
+    },
   },
 });
 
-export const { addIncome, addExpense } = transactionsSlice.actions;
+export const { addIncome, addExpense, deleteTransaction } = transactionsSlice.actions;
 
 export default transactionsSlice.reducer;
