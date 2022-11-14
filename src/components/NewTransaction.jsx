@@ -27,29 +27,35 @@ const NewTransaction = () => {
 
   const onSubmitIncome = (e) => {
     e.preventDefault();
-    const newIncomeTransaction = {
-      id: uuidv4(),
-      incomeText,
-      incomeAmount: +incomeAmount,
-    };
-    dispatch(addIncome(newIncomeTransaction));
-    setIncome({
-      incomeText: '',
-      incomeAmount: '',
-    });
+
+    if (incomeText !== '') {
+      const newIncomeTransaction = {
+        id: uuidv4(),
+        incomeText,
+        incomeAmount: +incomeAmount,
+      };
+      dispatch(addIncome(newIncomeTransaction));
+      setIncome({
+        incomeText: '',
+        incomeAmount: '',
+      });
+    }
   };
+
   const onSubmitExpense = (e) => {
     e.preventDefault();
-    const newExpenseTransaction = {
-      id: uuidv4(),
-      expenseText,
-      expenseAmount: +expenseAmount,
-    };
-    dispatch(addExpense(newExpenseTransaction));
-    setExpense({
-      expenseText: '',
-      expenseAmount: '',
-    });
+    if (incomeText !== '') {
+      const newExpenseTransaction = {
+        id: uuidv4(),
+        expenseText,
+        expenseAmount: +expenseAmount,
+      };
+      dispatch(addExpense(newExpenseTransaction));
+      setExpense({
+        expenseText: '',
+        expenseAmount: '',
+      });
+    }
   };
 
   return (
