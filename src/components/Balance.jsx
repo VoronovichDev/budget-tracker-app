@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const Balance = () => {
@@ -13,6 +13,11 @@ const Balance = () => {
   const totalExpense = expenseTransactions
     .reduce((sum, expense) => sum + expense.expenseAmount, 0)
     .toFixed(2);
+
+  useEffect(() => {
+    localStorage.setItem('incomeTransactions', JSON.stringify(incomeTransactions));
+    localStorage.setItem('expenseTransactions', JSON.stringify(expenseTransactions));
+  }, [incomeTransactions, expenseTransactions]);
 
   return (
     <div className="balance">
