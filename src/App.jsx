@@ -1,20 +1,15 @@
 import React from 'react';
-import Balance from './components/Balance';
-import Header from './components/Header';
-import NewTransaction from './components/NewTransaction';
-import Incomes from './components/Incomes';
-import Expenses from './components/Expenses';
+import { Routes, Route } from 'react-router-dom';
+import Charts from './pages/Charts';
+import Main from './pages/Main';
 
 function App() {
   return (
     <div className="container">
-      <div className="wrapper">
-        <Header />
-        <Balance />
-        <NewTransaction />
-        <Incomes />
-        <Expenses />
-      </div>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/charts" element={<Charts />} />
+      </Routes>
     </div>
   );
 }
