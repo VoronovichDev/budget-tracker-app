@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import NavButton from './NavButton';
 
 const Balance = () => {
   const { incomeTransactions, expenseTransactions } = useSelector(
@@ -33,6 +34,7 @@ const Balance = () => {
           <p>-${totalExpense}</p>
         </div>
       </div>
+      <NavButton />
     </div>
   );
 };

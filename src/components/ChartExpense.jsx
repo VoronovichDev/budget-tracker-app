@@ -23,9 +23,9 @@ const ChartExpense = () => {
     <ResponsiveContainer width="100%" height="100%" className="chart-ex">
       <LineChart data={formattedData}>
         <Line type="monotone" dataKey="expense" stroke="#ab0000" strokeWidth={3} />
-        <CartesianGrid stroke="#ccc" />
-        <XAxis dataKey="expenseText" tick="as" stroke="#fff" />
-        <YAxis stroke="#fff" />
+        <CartesianGrid stroke="#646664" />
+        <XAxis dataKey="expenseText" tick="as" stroke="#646664" />
+        <YAxis stroke="#646664" />
         <Tooltip />
         <Legend />
       </LineChart>

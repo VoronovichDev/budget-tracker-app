@@ -22,10 +22,10 @@ const ChartIncome = () => {
   return (
     <ResponsiveContainer width="100%" height="100%" className="chart">
       <LineChart data={formattedData}>
-        <Line type="monotone" dataKey="income" stroke="#00c267" strokeWidth={3} />
-        <CartesianGrid stroke="#ccc" />
-        <XAxis dataKey="incomeText" stroke="#fff" />
-        <YAxis stroke="#fff" />
+        <Line type="monotone" dataKey="income" stroke="#008000" strokeWidth={3} />
+        <CartesianGrid stroke="#646664" />
+        <XAxis dataKey="incomeText" stroke="#646664" />
+        <YAxis stroke="#646664" />
         <Tooltip />
         <Legend />
       </LineChart>
