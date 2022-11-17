@@ -10,9 +10,12 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { RootState } from '../redux/store';
 
 const ChartIncome = () => {
-  const incomeTransactions = useSelector((state) => state.transactionsSlice.incomeTransactions);
+  const incomeTransactions = useSelector(
+    (state: RootState) => state.transactionsSlice.incomeTransactions,
+  );
   const data = [...incomeTransactions];
 
   const formattedData = data.map((obj) => {

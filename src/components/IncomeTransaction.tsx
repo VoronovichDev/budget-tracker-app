@@ -3,9 +3,20 @@ import { MdDelete } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { deleteTransaction } from '../redux/slices/transactionsSlice';
 
-const IncomeTransaction = ({ transaction }) => {
+type TransactionPropIncome = {
+  id: string;
+  incomeAmount: number;
+  incomeText: string;
+};
+
+interface IncomeTransactionProps {
+  transaction: TransactionPropIncome;
+}
+
+const IncomeTransaction: React.FC<IncomeTransactionProps> = ({ transaction }) => {
   const dispatch = useDispatch();
 
+  console.log(transaction);
   const onIncomeDelete = () => {
     dispatch(deleteTransaction(transaction));
   };

@@ -1,16 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getTransactionsFromLS } from '../../utils/getTransactionsFromLS';
 
+type incomeTransactionType = {
+  id: string;
+  incomeAmount: number;
+  incomeText: string;
+};
+type expenseTransactionsType = {
+  id: string;
+  expenseAmount: number;
+  expenseText: string;
+};
+
+interface transactionsState {
+  incomeTransactions: incomeTransactionType[];
+  expenseTransactions: expenseTransactionsType[];
+}
+
 const { incomeTransactions, expenseTransactions } = getTransactionsFromLS();
-const initialState = {
+
+const initialState: transactionsState = {
   incomeTransactions,
   expenseTransactions,
 };
+
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
-    addIncome(state, action) {
+    addIncome(state, action: PayloadAction<incomeTransactionType>) {
       state.incomeTransactions = [action.payload, ...state.incomeTransactions];
     },
     addExpense(state, action) {
@@ -18,10 +36,11 @@ const transactionsSlice = createSlice({
     },
     deleteTransaction(state, action) {
       state.incomeTransactions = state.incomeTransactions.filter(
-        (incomeTransaction) => incomeTransaction.id !== action.payload.id,
+        (incomeTransaction: incomeTransactionType) => incomeTransaction.id !== action.payload.id,
       );
       state.expenseTransactions = state.expenseTransactions.filter(
-        (expenseTransaction) => expenseTransaction.id !== action.payload.id,
+        (expenseTransaction: expenseTransactionsType) =>
+          expenseTransaction.id !== action.payload.id,
       );
     },
   },

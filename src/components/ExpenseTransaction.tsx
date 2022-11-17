@@ -3,7 +3,17 @@ import { MdDelete } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { deleteTransaction } from '../redux/slices/transactionsSlice';
 
-const ExpenseTransaction = ({ transaction }) => {
+type TransactionPropExpense = {
+  id: string;
+  expenseAmount: number;
+  expenseText: string;
+};
+
+interface ExpenseTransactionProps {
+  transaction: TransactionPropExpense;
+}
+
+const ExpenseTransaction: React.FC<ExpenseTransactionProps> = ({ transaction }) => {
   const dispatch = useDispatch();
 
   const onExpenseDelete = () => {

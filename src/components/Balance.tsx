@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 import NavButton from './NavButton';
 
-const Balance = () => {
+const Balance: React.FC = () => {
   const { incomeTransactions, expenseTransactions } = useSelector(
-    (state) => state.transactionsSlice,
+    (state: RootState) => state.transactionsSlice,
   );
 
-  const totalIncome = incomeTransactions
-    .reduce((sum, income) => sum + income.incomeAmount, 0)
-    .toFixed(2);
+  const totalIncome: number = incomeTransactions.reduce(
+    (sum: number, income: any) => sum + income.incomeAmount,
+    0,
+  );
 
-  const totalExpense = expenseTransactions
-    .reduce((sum, expense) => sum + expense.expenseAmount, 0)
-    .toFixed(2);
+  console.log(totalIncome, 'total income');
+
+  const totalExpense: number = expenseTransactions.reduce(
+    (sum: number, expense: any) => sum + expense.expenseAmount,
+    0,
+  );
 
   useEffect(() => {
     localStorage.setItem('incomeTransactions', JSON.stringify(incomeTransactions));
@@ -27,11 +32,11 @@ const Balance = () => {
       <div className="plus-minus">
         <div className="plus">
           <h3>Income</h3>
-          <p>+${totalIncome}</p>
+          <p>+${totalIncome.toFixed(2)}</p>
         </div>
         <div className="minus">
           <h3>Expenses</h3>
-          <p>-${totalExpense}</p>
+          <p>-${totalExpense.toFixed(2)}</p>
         </div>
       </div>
       <NavButton />

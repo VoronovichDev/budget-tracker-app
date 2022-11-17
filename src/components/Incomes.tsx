@@ -1,9 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 import IncomeTransaction from './IncomeTransaction';
 
 const Incomes = () => {
-  const incomeTransactions = useSelector((state) => state.transactionsSlice.incomeTransactions);
+  const incomeTransactions = useSelector(
+    (state: RootState) => state.transactionsSlice.incomeTransactions,
+  );
+
+  console.log('111', incomeTransactions);
 
   return (
     <div className="transactions transactions-income">

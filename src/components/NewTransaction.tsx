@@ -3,29 +3,38 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addExpense, addIncome } from '../redux/slices/transactionsSlice';
 
+interface icnomeData {
+  incomeText: string;
+  incomeAmount: number;
+}
+interface expenseData {
+  expenseText: string;
+  expenseAmount: number;
+}
+
 const NewTransaction = () => {
   const dispatch = useDispatch();
 
-  const [income, setIncome] = useState({
+  const [income, setIncome] = useState<icnomeData>({
     incomeText: '',
-    incomeAmount: '',
+    incomeAmount: 0,
   });
-  const [expense, setExpense] = useState({
+  const [expense, setExpense] = useState<expenseData>({
     expenseText: '',
-    expenseAmount: '',
+    expenseAmount: 0,
   });
 
   const { incomeText, incomeAmount } = income;
   const { expenseText, expenseAmount } = expense;
 
-  const onChangeIncome = (e) => {
+  const onChangeIncome = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIncome({ ...income, [e.target.name]: e.target.value });
   };
-  const onChangeExpense = (e) => {
+  const onChangeExpense = (e: React.ChangeEvent<HTMLInputElement>) => {
     setExpense({ ...expense, [e.target.name]: e.target.value });
   };
 
-  const onSubmitIncome = (e) => {
+  const onSubmitIncome = (e: React.FormEvent) => {
     e.preventDefault();
     if (incomeText !== '' && +incomeAmount > 0) {
       const newIncomeTransaction = {
@@ -36,13 +45,13 @@ const NewTransaction = () => {
       dispatch(addIncome(newIncomeTransaction));
       setIncome({
         incomeText: '',
-        incomeAmount: '',
+        incomeAmount: 0,
       });
     }
     return;
   };
 
-  const onSubmitExpense = (e) => {
+  const onSubmitExpense = (e: React.FormEvent) => {
     e.preventDefault();
     if (expenseText !== '' && +expenseAmount > 0) {
       const newExpenseTransaction = {
@@ -53,7 +62,7 @@ const NewTransaction = () => {
       dispatch(addExpense(newExpenseTransaction));
       setExpense({
         expenseText: '',
-        expenseAmount: '',
+        expenseAmount: 0,
       });
     }
     return;

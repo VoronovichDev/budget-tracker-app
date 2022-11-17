@@ -10,9 +10,12 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { RootState } from '../redux/store';
 
 const ChartExpense = () => {
-  const expenseTransactions = useSelector((state) => state.transactionsSlice.expenseTransactions);
+  const expenseTransactions = useSelector(
+    (state: RootState) => state.transactionsSlice.expenseTransactions,
+  );
   const data = [...expenseTransactions];
 
   const formattedData = data.map((obj) => {
@@ -24,7 +27,7 @@ const ChartExpense = () => {
       <LineChart data={formattedData}>
         <Line type="monotone" dataKey="expense" stroke="#ab0000" strokeWidth={3} />
         <CartesianGrid stroke="#646664" />
-        <XAxis dataKey="expenseText" tick="as" stroke="#646664" />
+        <XAxis dataKey="expenseText" stroke="#646664" />
         <YAxis stroke="#646664" />
         <Tooltip />
         <Legend />
