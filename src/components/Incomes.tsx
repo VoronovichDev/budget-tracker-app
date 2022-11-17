@@ -8,8 +8,6 @@ const Incomes = () => {
     (state: RootState) => state.transactionsSlice.incomeTransactions,
   );
 
-  console.log('111', incomeTransactions);
-
   return (
     <div className="transactions transactions-income">
       <h2>Income History</h2>

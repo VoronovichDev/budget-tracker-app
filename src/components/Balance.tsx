@@ -13,8 +13,6 @@ const Balance: React.FC = () => {
     0,
   );
 
-  console.log(totalIncome, 'total income');
-
   const totalExpense: number = expenseTransactions.reduce(
     (sum: number, expense: any) => sum + expense.expenseAmount,
     0,

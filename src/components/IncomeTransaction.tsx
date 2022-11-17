@@ -16,7 +16,6 @@ interface IncomeTransactionProps {
 const IncomeTransaction: React.FC<IncomeTransactionProps> = ({ transaction }) => {
   const dispatch = useDispatch();
 
-  console.log(transaction);
   const onIncomeDelete = () => {
     dispatch(deleteTransaction(transaction));
   };

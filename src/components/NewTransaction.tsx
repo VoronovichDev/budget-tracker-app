@@ -15,6 +15,13 @@ interface expenseData {
 const NewTransaction = () => {
   const dispatch = useDispatch();
 
+  const onFocusIputAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    if (+e.target.value === 0) {
+      e.target.value = '';
+    }
+  };
+
   const [income, setIncome] = useState<icnomeData>({
     incomeText: '',
     incomeAmount: 0,
@@ -81,6 +88,7 @@ const NewTransaction = () => {
             onChange={onChangeIncome}
           />
           <input
+            onFocus={onFocusIputAmount}
             type="number"
             name="incomeAmount"
             value={incomeAmount}
@@ -102,6 +110,7 @@ const NewTransaction = () => {
             onChange={onChangeExpense}
           />
           <input
+            onFocus={onFocusIputAmount}
             type="number"
             name="expenseAmount"
             value={expenseAmount}
